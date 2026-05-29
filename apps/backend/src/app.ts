@@ -9,7 +9,6 @@ import routes from './routes';
 import authRoutes from './routes/auth.routes';
 
 const app = express();
-
 app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
@@ -17,8 +16,6 @@ app.use(express.json());
 
 app.use(apiLimiter);
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
-
-
 // Rutas públicas de auth (sin tenantMiddleware)
 app.use('/api/auth', authRoutes);
 
