@@ -27,12 +27,12 @@ export const generateTokens = (user: any) => {
   const accessToken = jwt.sign(
     { userId: user.id, tenantId: user.tenantId, role: user.role },
     process.env.JWT_SECRET!,
-    { expiresIn: '15m' }
+    { expiresIn: '15m' },
   );
   const refreshToken = jwt.sign(
     { userId: user.id, tenantId: user.tenantId, role: user.role },
     process.env.JWT_SECRET!,
-    { expiresIn: '7d' }
+    { expiresIn: '7d' },
   );
   return { accessToken, refreshToken };
 };

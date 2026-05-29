@@ -10,8 +10,18 @@ const router = Router();
 router.use(authMiddleware);
 
 router.get('/', projectController.getProjects);
-router.post('/', rbacMiddleware(['ADMIN']), validate(projectSchema), projectController.createProject);
-router.put('/:id', rbacMiddleware(['ADMIN']), validate(projectSchema), projectController.updateProject);
+router.post(
+  '/',
+  rbacMiddleware(['ADMIN']),
+  validate(projectSchema),
+  projectController.createProject,
+);
+router.put(
+  '/:id',
+  rbacMiddleware(['ADMIN']),
+  validate(projectSchema),
+  projectController.updateProject,
+);
 router.delete('/:id', rbacMiddleware(['ADMIN']), projectController.deleteProject);
 
 export default router;

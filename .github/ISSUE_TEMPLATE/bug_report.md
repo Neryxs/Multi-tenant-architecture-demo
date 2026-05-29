@@ -9,6 +9,7 @@ Una descripción clara y concisa del bug.
 
 **Para reproducir**
 Pasos para reproducir el comportamiento:
+
 1. ...
 2. ...
 

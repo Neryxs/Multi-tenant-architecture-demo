@@ -8,6 +8,7 @@ labels: enhancement
 Explica brevemente el cambio propuesto.
 
 **Checklist**
+
 - [ ] El código sigue las convenciones del proyecto
 - [ ] Los tests pasan
 - [ ] La documentación está actualizada

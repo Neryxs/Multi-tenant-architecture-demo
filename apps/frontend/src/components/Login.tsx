@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useState } from 'react';
 
 export default function Login({ onLogin }: { onLogin: (token: string) => void }) {
@@ -33,12 +33,14 @@ export default function Login({ onLogin }: { onLogin: (token: string) => void })
         onSubmit={handleSubmit}
         className="bg-white dark:bg-gray-900 p-8 rounded shadow-md w-full max-w-sm"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-white">Iniciar sesión</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-white">
+          Iniciar sesión
+        </h2>
         <input
           type="email"
           placeholder="Email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           className="w-full mb-4 p-2 border rounded dark:bg-gray-800 dark:text-white"
           required
         />
@@ -46,7 +48,7 @@ export default function Login({ onLogin }: { onLogin: (token: string) => void })
           type="password"
           placeholder="Contraseña"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           className="w-full mb-4 p-2 border rounded dark:bg-gray-800 dark:text-white"
           required
         />
