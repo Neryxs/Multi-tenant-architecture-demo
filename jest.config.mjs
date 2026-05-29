@@ -6,9 +6,7 @@ import { resolve } from 'path';
 /**
  * Carga el tsconfig para mapear paths si es necesario
  */
-const tsconfig = JSON.parse(
-  readFileSync(resolve('./apps/backend/tsconfig.json'), 'utf-8')
-);
+const tsconfig = JSON.parse(readFileSync(resolve('./apps/backend/tsconfig.json'), 'utf-8'));
 
 export default {
   preset: 'ts-jest/presets/default-esm',
@@ -24,10 +22,9 @@ export default {
       },
     ],
   },
-  moduleNameMapper: pathsToModuleNameMapper(
-    tsconfig.compilerOptions.paths || {},
-    { prefix: '<rootDir>/apps/backend/' }
-  ),
+  moduleNameMapper: pathsToModuleNameMapper(tsconfig.compilerOptions.paths || {}, {
+    prefix: '<rootDir>/apps/backend/',
+  }),
   setupFiles: ['dotenv/config'],
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
   moduleFileExtensions: ['ts', 'js', 'json'],

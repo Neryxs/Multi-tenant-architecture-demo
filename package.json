@@ -15,6 +15,7 @@
     "start:backend": "cd apps/backend && npm start",
     "lint": "eslint .",
     "format": "prettier --write .",
+    "lint:fix": "eslint . --fix",
     "test": "jest --config=jest.config.mjs",
     "prepare": "husky install"
   },
