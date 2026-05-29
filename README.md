@@ -107,7 +107,7 @@ GET /projects (con JWT)
 
 ## Créditos
 
-Desarrollado por [Tu Nombre].
+Desarrollado por [Neryxs].
 
 ---
 
