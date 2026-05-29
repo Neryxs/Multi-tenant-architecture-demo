@@ -28,11 +28,5 @@ export default {
   setupFiles: ['dotenv/config'],
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
   moduleFileExtensions: ['ts', 'js', 'json'],
-  globals: {
-    'ts-jest': {
-      useESM: true,
-      tsconfig: './apps/backend/tsconfig.json',
-    },
-  },
   verbose: true,
 };

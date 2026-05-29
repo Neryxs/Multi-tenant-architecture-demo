@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/main.js",
     "start:prod": "node dist/main.js",
-    "test": "jest --config=../../jest.config.mjs",
+    "prisma:generate": "prisma generate --schema=prisma/schema.prisma",
+    "test": "npm run prisma:generate && jest --config=../../jest.config.mjs",
     "seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
