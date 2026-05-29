@@ -26,6 +26,8 @@ describe('Tenant Isolation', () => {
     const globexProjects = await request(app)
       .get('/api/projects')
       .set('Authorization', `Bearer ${globexToken}`);
-    expect(globexProjects.body.find((p: any) => p.name === 'Proyecto Acme')).toBeUndefined();
+    expect(
+      globexProjects.body.find((p: { name: string }) => p.name === 'Proyecto Acme'),
+    ).toBeUndefined();
   });
 });

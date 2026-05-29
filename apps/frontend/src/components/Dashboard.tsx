@@ -1,16 +1,15 @@
 'use client';
-import { useEffect, useState } from 'react';
+import type { User, Project } from '../app/page';
 
 export default function Dashboard({
   user,
   tenant,
   projects,
 }: {
-  user: any;
+  user: User;
   tenant: string;
-  projects: any[];
+  projects: Project[];
 }) {
-  const [loading, setLoading] = useState(false);
   return (
     <div className="flex flex-col gap-6 p-8 w-full">
       <div className="flex items-center justify-between">

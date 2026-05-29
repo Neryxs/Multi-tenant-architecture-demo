@@ -5,11 +5,14 @@ import Sidebar from '../components/Sidebar';
 import Dashboard from '../components/Dashboard';
 import ProjectsTable from '../components/ProjectsTable';
 
+export type User = { email: string; role: string; id?: string };
+export type Project = { id: string; name: string; tenantId?: string };
+
 export default function Home() {
   const [token, setToken] = useState<string | null>(null);
-  const [user, setUser] = useState<any>(null);
-  const [tenant, setTenant] = useState('acme'); // Simulación
-  const [projects, setProjects] = useState<any[]>([]);
+  const [user, setUser] = useState<User | null>(null);
+  const [tenant] = useState('acme'); // Simulación
+  const [projects, setProjects] = useState<Project[]>([]);
 
   const handleLogin = async (jwt: string) => {
     setToken(jwt);

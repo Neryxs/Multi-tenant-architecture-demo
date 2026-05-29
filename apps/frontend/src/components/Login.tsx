@@ -20,8 +20,12 @@ export default function Login({ onLogin }: { onLogin: (token: string) => void })
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Error');
       onLogin(data.accessToken);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Error desconocido');
+      }
     } finally {
       setLoading(false);
     }

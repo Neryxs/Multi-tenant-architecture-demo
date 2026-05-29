@@ -1,4 +1,6 @@
-export default function ProjectsTable({ projects }: { projects: any[] }) {
+import type { Project } from '../app/page';
+
+export default function ProjectsTable({ projects }: { projects: Project[] }) {
   if (!projects.length) {
     return <div className="p-8 text-gray-500 dark:text-gray-400">No hay proyectos aún.</div>;
   }
