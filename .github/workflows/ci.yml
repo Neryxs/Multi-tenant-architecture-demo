@@ -29,12 +29,8 @@ jobs:
         with:
           node-version: 20.19.0
       # No cache to avoid npm/prisma corruption
-      - name: Clean install root dependencies
+      - name: Clean install all workspaces (root)
         run: npm ci
-      - name: Install frontend dependencies
-        run: cd apps/frontend && npm ci
-      - name: Install backend dependencies
-        run: cd apps/backend && npm ci
       - name: 'Show Node/NPM versions'
         run: |
           node -v

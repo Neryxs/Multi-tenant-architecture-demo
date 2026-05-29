@@ -21,6 +21,10 @@
     "test": "npm run prisma:generate && jest --config=jest.config.mjs",
     "prepare": "husky install"
   },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
