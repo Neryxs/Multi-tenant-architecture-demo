@@ -2,7 +2,6 @@
 
 ![Logo Placeholder](docs/logo-placeholder.png)
 
-Repositorio profesional de ejemplo para arquitectura SaaS multi-tenant moderna.
 
 ## Tabla de Contenidos
 - [Descripción](#descripción)
