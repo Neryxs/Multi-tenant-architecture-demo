@@ -24,15 +24,10 @@ jobs:
           - 6379:6379
     steps:
       - uses: actions/checkout@v4
-      - name: 'Use Node.js 20.14.0'
+      - name: 'Use Node.js 20.19.0'
         uses: actions/setup-node@v4
         with:
-          node-version: 20.14.0
-      - name: 'Show Node/NPM/Prisma versions'
-        run: |
-          node -v
-          npm -v
-          npx prisma -v
+          node-version: 20.19.0
       # No cache to avoid npm/prisma corruption
       - name: Clean install root dependencies
         run: npm ci
@@ -40,6 +35,12 @@ jobs:
         run: cd apps/frontend && npm ci
       - name: Install backend dependencies
         run: cd apps/backend && npm ci
+      - name: 'Show Node/NPM versions'
+        run: |
+          node -v
+          npm -v
+      - name: 'Show Prisma version (local)'
+        run: ./node_modules/.bin/prisma -v
       - name: 'Debug: ls node_modules/.prisma'
         run: ls -l node_modules/.prisma || true
       - name: 'Debug: ls node_modules/@prisma/client'
@@ -47,13 +48,13 @@ jobs:
       - name: Lint
         run: npm run lint
       - name: Prisma generate (explicit)
-        run: npx prisma generate --schema=apps/backend/prisma/schema.prisma
+        run: ./node_modules/.bin/prisma generate --schema=apps/backend/prisma/schema.prisma
       - name: 'Debug: ls node_modules/.prisma (after generate)'
         run: ls -l node_modules/.prisma || true
       - name: 'Debug: ls node_modules/@prisma/client (after generate)'
         run: ls -l node_modules/@prisma/client || true
       - name: Prisma migrate (deploy)
-        run: npx prisma migrate deploy --schema=apps/backend/prisma/schema.prisma
+        run: ./node_modules/.bin/prisma migrate deploy --schema=apps/backend/prisma/schema.prisma
       - name: Test
         run: npm run test
       - name: Build frontend
